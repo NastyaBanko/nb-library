@@ -1,16 +1,12 @@
-<!-- <div>Test</div> -->
-
-<aside class="sidebar">
-  <!-- Шапка -->
-  <div class="sidebar-header">
-    <div class="logo">A</div>
-    <span class="logo-text">AppWorkspace</span>
+<aside class="nb-menu__sidebar">
+  <div class="nb-menu__sidebar-header">
+    <div class="nb-menu__logo">A</div>
+    <span class="nb-menu__logo-text">{{ "label.menu" | translate }}</span>
   </div>
 
-  <!-- Поиск -->
-  <div class="search-container">
-    <div class="search-box">
-      <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <div class="nb-menu__search-container">
+    <div class="nb-menu__search-box">
+      <svg class="nb-menu__search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -18,36 +14,38 @@
           d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
         ></path>
       </svg>
-      <input type="text" [(ngModel)]="searchQuery" placeholder="Поиск по меню..." />
+      <input
+        type="text"
+        [placeholder]="'label.searh.menu.placeholder' | translate"
+        [(ngModel)]="searchQuery"
+      />
     </div>
   </div>
 
-  <!-- Список элементов -->
-  <div class="menu-list">
-    <div *ngIf="filteredItems.length === 0" class="no-results">Ничего не найдено</div>
-
-    <button
-      *ngFor="let item of filteredItems"
-      (click)="selectItem(item)"
-      [class.active]="activeId === item.id"
-      class="menu-item"
-    >
-      <div class="menu-item-content">
-        <span [innerHTML]="item.icon" class="icon"></span>
-        <span>{{ item.label }}</span>
-      </div>
-      <span *ngIf="item.badge" class="badge">{{ item.badge }}</span>
-    </button>
+  <div class="nb-menu__menu-list">
+    <ng-container *ngIf="filteredItems.length !== 0; else noResults">
+      <button
+        *ngFor="let item of filteredItems"
+        class="nb-menu__menu-item"
+        [class.active]="activeId === item.id"
+        (click)="selectItem(item)"
+      >
+        {{ item.label | translate }}
+      </button>
+    </ng-container>
   </div>
 
-  <!-- Футер профиля -->
-  <div class="sidebar-footer">
-    <div class="user-card">
-      <div class="avatar">ДП</div>
-      <div class="user-info">
-        <span class="user-name">Дмитрий П.</span>
-        <span class="user-email">admin&#64;workspace.io</span>
+  <div class="nb-menu__sidebar-footer">
+    <div class="nb-menu__user-card">
+      <div class="nb-menu__avatar">ДП</div>
+      <div class="nb-menu__user-info">
+        <span class="nb-menu__user-name">{{ "label.banko.name" | translate }}</span>
+        <span class="nb-menu__user-email">{{ "label.banko.email" | translate }}</span>
       </div>
     </div>
   </div>
 </aside>
+
+<ng-template #noResults>
+  <div class="nb-menu__no-results">{{ "label.not.found" | translate }}</div>
+</ng-template>
