@@ -1,10 +1,10 @@
 import {Routes} from "@angular/router";
-import {Constants} from "@suzuki/utils/constants";
-import {GameZoneComponent} from "@suzuki/modules/game-zone/game-zone.component";
+import {Constants} from "@nb/utils/constants";
+import {LibraryComponent} from "@nb/modules/library/library.component";
 
 export const routes: Routes = [
-  {path: "", redirectTo: `/${Constants.GAME_ZONE_ROUTE}`, pathMatch: "full"},
-  {path: Constants.GAME_ZONE_ROUTE, component: GameZoneComponent, data: {state: "game-zone"}},
+  {path: "", redirectTo: `/${Constants.LIBRARY_ROUTE}`, pathMatch: "full"},
+  {path: Constants.LIBRARY_ROUTE, component: LibraryComponent, data: {state: "library"}},
   //   {
   //     path: Constants.GAME_ZONE_ROUTE,
   //     loadChildren: () =>

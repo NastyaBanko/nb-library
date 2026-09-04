@@ -1,3 +1,3 @@
 export class Constants {
-  public static readonly GAME_ZONE_ROUTE = "game-zone";
+  public static readonly LIBRARY_ROUTE = "library";
 }
