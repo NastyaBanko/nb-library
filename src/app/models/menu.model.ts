@@ -1,15 +1,20 @@
+export enum MenuItemId {
+  HIGHCHARTS = "HIGHCHARTS",
+  CARDS = "CARDS",
+}
+
 export interface MenuItem {
-  id: string;
+  id: MenuItemId;
   label: string;
 }
 
 export const menuItems: MenuItem[] = [
   {
-    id: "dashboard",
+    id: MenuItemId.HIGHCHARTS,
     label: "label.highcharts",
   },
   {
-    id: "projects",
+    id: MenuItemId.CARDS,
     label: "label.cards",
   },
 ];

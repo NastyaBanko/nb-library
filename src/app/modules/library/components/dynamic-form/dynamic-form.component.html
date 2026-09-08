@@ -1,0 +1,66 @@
+<form class="nb-dynamic-form__dynamic-form" [formGroup]="form">
+  <div *ngFor="let field of fields" class="nb-dynamic-form__form-group">
+    <label [for]="field.key">{{ field.label | translate }}</label>
+
+    <ng-container [ngSwitch]="field.type">
+      <input
+        *ngSwitchCase="fieldType.TEXT"
+        type="text"
+        class="nb-dynamic-form__form-control"
+        [id]="field.key"
+        [type]="field.type"
+        [formControlName]="field.key"
+      />
+
+      <div *ngSwitchCase="fieldType.SELECT" class="nb-dynamic-form__select-wrapper">
+        <select
+          class="nb-dynamic-form__form-control nb-dynamic-form__select-control"
+          [id]="field.key"
+          [formControlName]="field.key"
+        >
+          <option
+            *ngFor="let opt of field.options"
+            class="nb-dynamic-form__select-option"
+            [value]="opt.value"
+          >
+            {{ opt.label }}
+          </option>
+        </select>
+        <span class="nb-dynamic-form__select-arrow">
+          <!-- TODO: move to icons -->
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </span>
+      </div>
+
+      <div *ngSwitchCase="fieldType.COLOR" class="nb-dynamic-form__color-picker-wrapper">
+        <input
+          class="nb-dynamic-form__color-input"
+          type="color"
+          [id]="field.key"
+          [formControlName]="field.key"
+        />
+        <span class="nb-dynamic-form__color-value">{{ form.get(field.key)?.value }}</span>
+      </div>
+
+      <ng-container *ngSwitchCase="fieldType.MEMO">
+        <textarea
+          class="nb-dynamic-form__form-control nb-dynamic-form__memo-control"
+          [id]="field.key"
+          [formControlName]="field.key"
+          rows="10"
+        ></textarea>
+
+        <div *ngIf="_isFieldInvalid(field.key)" class="nb-dynamic-form__error-msg">
+          {{ "label.wrong.data" | translate }}
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</form>

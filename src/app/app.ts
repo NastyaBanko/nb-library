@@ -23,7 +23,7 @@ const defaultLang: LocaleModel = {
 export class App {
   protected readonly title = signal("nb-library");
 
-  constructor(private translateService: TranslateService) {
+  constructor(public translateService: TranslateService) {
     let currentLanguage: string | null = localStorage.getItem(Constants.LANGUAGE);
     if (!currentLanguage) {
       currentLanguage = defaultLang.localeCode;

@@ -16,7 +16,7 @@ export class MenuComponent {
   public activeId: string = menuItems[0].id;
   @Output() itemClick = new EventEmitter<MenuItem>();
 
-  get filteredItems(): MenuItem[] {
+  public get filteredItems(): MenuItem[] {
     if (!this.searchQuery.trim()) {
       return menuItems;
     }
@@ -24,7 +24,7 @@ export class MenuComponent {
     return menuItems.filter((item: MenuItem) => item.label.toLowerCase().includes(query));
   }
 
-  public selectItem(item: MenuItem) {
+  public _selectItem(item: MenuItem) {
     this.activeId = item.id;
     this.itemClick.emit(item);
   }

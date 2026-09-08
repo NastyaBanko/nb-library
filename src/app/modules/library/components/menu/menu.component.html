@@ -6,6 +6,7 @@
 
   <div class="nb-menu__search-container">
     <div class="nb-menu__search-box">
+      <!-- TODO: move to svg -->
       <svg class="nb-menu__search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
           stroke-linecap="round"
@@ -28,7 +29,7 @@
         *ngFor="let item of filteredItems"
         class="nb-menu__menu-item"
         [class.active]="activeId === item.id"
-        (click)="selectItem(item)"
+        (click)="_selectItem(item)"
       >
         {{ item.label | translate }}
       </button>
@@ -37,6 +38,7 @@
 
   <div class="nb-menu__sidebar-footer">
     <div class="nb-menu__user-card">
+      <!-- TODO: change to avatar icon-->
       <div class="nb-menu__avatar">ДП</div>
       <div class="nb-menu__user-info">
         <span class="nb-menu__user-name">{{ "label.banko.name" | translate }}</span>

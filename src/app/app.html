@@ -1,1 +1,5 @@
-<router-outlet #outlet="outlet"></router-outlet>
+<ng-container *ngIf="!translateService.isLoading(); else loading">
+  <router-outlet #outlet="outlet"></router-outlet>
+</ng-container>
+
+<ng-template #loading> Loading...</ng-template>

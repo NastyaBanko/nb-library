@@ -1,0 +1,18 @@
+<div class="nb-tabs__tabs-container">
+  <div class="nb-tabs__tabs-header">
+    <div class="nb-tabs__tabs-list">
+      <button
+        *ngFor="let tab of tabs"
+        class="nb-tabs__tab-btn"
+        [class.active]="activeTabId === tab.id"
+        (click)="_selectTab(tab.id)"
+      >
+        {{ tab.label | translate }}
+      </button>
+    </div>
+  </div>
+
+  <div class="nb-tabs__tabs-content">
+    <ng-content></ng-content>
+  </div>
+</div>
