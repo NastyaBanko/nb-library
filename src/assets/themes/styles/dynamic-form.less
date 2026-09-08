@@ -81,22 +81,8 @@
     scrollbar-color: rgba(100, 116, 139, 0.2) transparent;
   }
 
-  &__memo-control::-webkit-scrollbar {
-    width: 5px;
-  }
-
-  &__memo-control::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &__memo-control::-webkit-scrollbar-thumb {
-    background: rgba(100, 116, 139, 0.2);
-    border-radius: 10px;
-    transition: background 0.2s;
-  }
-
-  &__memo-control::-webkit-scrollbar-thumb:hover {
-    background: rgba(100, 116, 139, 0.4);
+  &__memo-control {
+    .pretty-scrollbar();
   }
 
   &__color-picker-wrapper {

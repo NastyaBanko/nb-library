@@ -13,5 +13,11 @@
     "label.color.palette": "Color Palette",
     "label.chart.data": "Chart Data",
     "label.wrong.data": "Wrong Data",
+    "chart.line": "Line",
+    "chart.areaspline": "Area Spline",
+    "chart.area": "Area",
+    "chart.column": "Column",
+    "chart.bar": "Bar",
+    "chart.pie": "Pie",
     "label.not.found": "Not Found"
 }

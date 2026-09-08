@@ -2,7 +2,7 @@ import {Component, HostBinding, Input, OnChanges} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import * as Highcharts from "highcharts";
 import {HighchartsChartDirective} from "highcharts-angular";
-import {HighchartType} from "@nb/models/highchart.model";
+import {HighchartType, defaultPalette, defaultPieConfig} from "@nb/models/highchart.model";
 
 @Component({
   selector: "nb-highcharts",
@@ -13,7 +13,7 @@ export class HighchartsComponent implements OnChanges {
   @HostBinding("class") public hostClass = "nb-highcharts";
   @Input() chartTitle: string = "";
   @Input() chartType: HighchartType = HighchartType.AREASPLINE;
-  @Input() colorPalette: string[] = [];
+  @Input() colorPalette: string[] = defaultPalette.colors;
   @Input() seriesJson: string = "";
   public chartOptions: Highcharts.Options = {};
 
@@ -37,6 +37,9 @@ export class HighchartsComponent implements OnChanges {
         text: this.chartTitle,
         style: {color: "#f8fafc", fontSize: "16px"},
       },
+      credits: {
+        enabled: false,
+      },
       colors: this.colorPalette,
       plotOptions: {
         series: {
@@ -48,6 +51,15 @@ export class HighchartsComponent implements OnChanges {
                 radius: 5,
               },
             },
+          },
+        },
+        pie: {
+          allowPointSelect: true,
+          cursor: "pointer",
+          dataLabels: {
+            enabled: true,
+            format: "<b>{point.name}</b>: {point.percentage:.1f} %",
+            style: {color: "#f8fafc"},
           },
         },
         areaspline: {
@@ -62,6 +74,7 @@ export class HighchartsComponent implements OnChanges {
         },
       },
       series: processedSeries,
+      ...(this.chartType === HighchartType.PIE ? defaultPieConfig : {}),
     };
   }
 

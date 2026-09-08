@@ -25,6 +25,20 @@
       ></nb-dynamic-form>
     </div>
 
-    <div *ngIf="_currentTab === _tabsId.EXAMPLES">EXAMPLES</div>
+    <div *ngIf="_currentTab === _tabsId.EXAMPLES" class="nb-library__examples">
+      <ng-container *ngIf="_menuItemId === _menuItemIds.HIGHCHARTS">
+        <ng-container *ngFor="let example of _chartExamples">
+          <div class="nb-library__example-container">
+            <div class="nb-library__example-name">{{ example.name }}</div>
+            <nb-highcharts
+              class="nb-library__example-highchart"
+              [chartTitle]="example.title"
+              [chartType]="example.type"
+              [seriesJson]="example.data"
+            ></nb-highcharts>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
   </nb-tabs>
 </div>

@@ -4,7 +4,7 @@ import {MenuComponent} from "@nb/modules/library/components/menu/menu.component"
 import {TabsComponent} from "@nb/modules/library/components/tabs/tabs.component";
 import {HighchartsComponent} from "@nb/modules/library/components/highcharts/highcharts.component";
 import {DynamicFormComponent} from "@nb/modules/library/components/dynamic-form/dynamic-form.component";
-import {Tabs, mainTabs, highchartFormConfig, palettes} from "@nb/models/library.model";
+import {Tabs, mainTabs, highchartFormConfig, palettes, chartExamples} from "@nb/models/library.model";
 import {MenuItem, MenuItemId} from "@nb/models/menu.model";
 
 @Component({
@@ -22,6 +22,7 @@ export class LibraryComponent {
   public readonly _tabsId = Tabs;
   public readonly _menuItemIds = MenuItemId;
   public readonly _highchartFormConfig = highchartFormConfig;
+  public readonly _chartExamples = chartExamples;
 
   public get colorPalette(): string[] {
     const palette = palettes.find((p) => p.value === this.formValues.colorPaletteId);
