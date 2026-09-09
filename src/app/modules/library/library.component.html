@@ -14,7 +14,7 @@
           [chartTitle]="formValues.chartTitle"
           [chartType]="formValues.chartType"
           [colorPalette]="colorPalette"
-          [seriesJson]="formValues.seriesJson"
+          [customConfig]="formValues.seriesJson"
         ></nb-highcharts>
       </ng-container>
       <ng-container *ngIf="_menuItemId === _menuItemIds.CARDS"> CARDS </ng-container>
@@ -34,7 +34,7 @@
               class="nb-library__example-highchart"
               [chartTitle]="example.title"
               [chartType]="example.type"
-              [seriesJson]="example.data"
+              [customConfig]="example.data"
             ></nb-highcharts>
           </div>
         </ng-container>

@@ -78,20 +78,22 @@ export const highchartFormConfig: FormField[] = [
     label: "label.chart.data",
     type: FieldType.MEMO,
     value: JSON.stringify(
-      [
-        {
-          name: "Series 1",
-          data: [1200, 2100, 1800, 3200, 2900],
-        },
-        {
-          name: "Series 2",
-          data: [800, 1500, 2300, 2900, 3400],
-        },
-        {
-          name: "Series 3",
-          data: [500, 1100, 1400, 2200, 2800],
-        },
-      ],
+      {
+        series: [
+          {
+            name: "Series 1",
+            data: [1200, 2100, 1800, 3200, 2900],
+          },
+          {
+            name: "Series 2",
+            data: [800, 1500, 2300, 2900, 3400],
+          },
+          {
+            name: "Series 3",
+            data: [500, 1100, 1400, 2200, 2800],
+          },
+        ],
+      },
       null,
       2
     ),
@@ -103,7 +105,8 @@ export const lineExample: ChartExample = {
   title: "Monthly Active Users",
   subTitle: "Platform growth over the last half-year",
   type: HighchartType.LINE,
-  data: `[
+  data: `{
+  "series": [
     {
       "name": "2024",
       "data": [
@@ -137,7 +140,8 @@ export const lineExample: ChartExample = {
         3900
       ]
     }
-  ]`,
+  ]
+}`,
 };
 
 export const areasplineExample: ChartExample = {
@@ -145,7 +149,8 @@ export const areasplineExample: ChartExample = {
   title: "Traffic Flow Dynamics",
   subTitle: "Smooth visualization of inbound requests",
   type: HighchartType.AREASPLINE,
-  data: `[
+  data: `{
+  "series": [
     {
       "name": "Server A",
       "data": [
@@ -168,7 +173,8 @@ export const areasplineExample: ChartExample = {
         3000
       ]
     }
-  ]`,
+  ]
+}`,
 };
 
 export const areaExample: ChartExample = {
@@ -176,7 +182,8 @@ export const areaExample: ChartExample = {
   title: "Revenue Overview",
   subTitle: "Cumulative financial growth by quarters",
   type: HighchartType.AREA,
-  data: `[
+  data: `{
+  "series": [
     {
       "name": "Product X",
       "data": [
@@ -197,7 +204,8 @@ export const areaExample: ChartExample = {
         5600
       ]
     }
-  ]`,
+  ]
+}`,
 };
 
 export const columnExample: ChartExample = {
@@ -205,7 +213,8 @@ export const columnExample: ChartExample = {
   title: "Sales by Region",
   subTitle: "Comparative analysis across key markets",
   type: HighchartType.COLUMN,
-  data: `[
+  data: `{
+  "series": [
     {
       "name": "North America",
       "data": [
@@ -224,7 +233,8 @@ export const columnExample: ChartExample = {
         6300
       ]
     }
-  ]`,
+  ]
+}`,
 };
 
 export const barExample: ChartExample = {
@@ -232,7 +242,8 @@ export const barExample: ChartExample = {
   title: "Task Completion Rate",
   subTitle: "Team efficiency score comparison",
   type: HighchartType.BAR,
-  data: `[
+  data: `{
+  "series": [
     {
       "name": "Completed",
       "data": [
@@ -253,15 +264,17 @@ export const barExample: ChartExample = {
         22
       ]
     }
-  ]`,
+  ]
+}`,
 };
 
 export const pieExample: ChartExample = {
-  name: "Line Chart Example",
+  name: "Pie Chart Example",
   title: "Browser Market Share",
   subTitle: "Distribution of active clients",
   type: HighchartType.PIE,
-  data: `[
+  data: `{
+  "series": [
     {
       "name": "Browsers",
       "data": [
@@ -287,7 +300,8 @@ export const pieExample: ChartExample = {
         }
       ]
     }
-  ]`,
+  ]
+}`,
 };
 
 export const chartExamples = [

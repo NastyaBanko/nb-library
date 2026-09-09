@@ -14,7 +14,7 @@ export class HighchartsComponent implements OnChanges {
   @Input() chartTitle: string = "";
   @Input() chartType: HighchartType = HighchartType.AREASPLINE;
   @Input() colorPalette: string[] = defaultPalette.colors;
-  @Input() seriesJson: string = "";
+  @Input() customConfig: string = "";
   public chartOptions: Highcharts.Options = {};
 
   public ngOnChanges() {
@@ -22,11 +22,7 @@ export class HighchartsComponent implements OnChanges {
   }
 
   private updateChartOptions() {
-    const processedSeries = this.processSeriesData(
-      this.seriesJson,
-      this.colorPalette,
-      this.chartType
-    );
+    const processedSeries = JSON.parse(this.customConfig) || {};
 
     this.chartOptions = {
       chart: {
@@ -73,39 +69,8 @@ export class HighchartsComponent implements OnChanges {
           borderRadius: 4,
         },
       },
-      series: processedSeries,
       ...(this.chartType === HighchartType.PIE ? defaultPieConfig : {}),
+      ...processedSeries,
     };
-  }
-
-  private processSeriesData(jsonString: string, paletteColors: string[], type: string): any[] {
-    try {
-      const parsed = JSON.parse(jsonString);
-      const rawArray = Array.isArray(parsed) ? parsed : [parsed];
-
-      return rawArray.map((serie, index) => {
-        const color = paletteColors[index % paletteColors.length];
-
-        const seriesConfig: any = {
-          ...serie,
-          type: type,
-          color: color,
-        };
-
-        if (type === HighchartType.AREASPLINE || type === HighchartType.AREA) {
-          seriesConfig.fillColor = {
-            linearGradient: {x1: 0, y1: 0, x2: 0, y2: 1},
-            stops: [
-              [0, color + "70"],
-              [1, color + "00"],
-            ],
-          };
-        }
-
-        return seriesConfig;
-      });
-    } catch (e) {
-      return [];
-    }
   }
 }
