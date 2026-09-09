@@ -4,7 +4,7 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background-color: #0b1120;
+    background-color: @main-dark-theme;
   }
 
   &__tabs {
@@ -12,9 +12,6 @@
     flex-direction: column;
     flex: 1;
     height: 100vh;
-    background-color: #0b1120;
-    color: #cbd5e1;
-    box-sizing: border-box;
     overflow: hidden;
   }
 
@@ -36,15 +33,17 @@
 
   &__example-container {
     min-width: 0;
-    border: 1px solid #1e293b;
+    border: 1px solid @border-color;
   }
 
   &__example-name {
-    border-bottom: 1px solid #1e293b;
+    border-bottom: 1px solid @border-color;
     padding: 20px;
+    color: @secondary-text;
   }
 
   &__example-highchart {
     padding: 20px;
+    height: 440px;
   }
 }

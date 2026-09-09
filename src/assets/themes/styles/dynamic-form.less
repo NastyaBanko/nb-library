@@ -17,25 +17,25 @@
   &__form-group label {
     font-size: 0.8125rem;
     font-weight: 500;
-    color: #94a3b8;
+    color: @secondary-text;
   }
 
   &__form-control {
     width: 100%;
     padding: 10px 14px;
     background-color: rgba(30, 41, 59, 0.5);
-    border: 1px solid #334155;
+    border: 1px solid @border-color;
     border-radius: 10px;
     font-size: 0.875rem;
-    color: white;
+    color: @primary-text;
     outline: none;
     box-sizing: border-box;
     transition: border-color 0.2s;
   }
 
   &__form-control:focus {
-    border-color: #6366f1;
-    box-shadow: 0 0 0 1px #6366f1;
+    border-color: @main-accent-color;
+    box-shadow: 0 0 0 1px @main-accent-color;
   }
 
   select.form-control {
@@ -62,14 +62,12 @@
     display: flex;
     align-items: center;
     pointer-events: none;
-    color: #94a3b8;
-    width: 16px;
-    height: 16px;
+    color: @secondary-text;
   }
 
   &__select-option {
-    background-color: #0f172a;
-    color: white;
+    background-color: @main-theme;
+    color: @primary-text;
     padding: 10px;
   }
 
@@ -102,6 +100,6 @@
 
   &__color-value {
     font-size: 0.8125rem;
-    color: #64748b;
+    color: @secondary-text;
   }
 }

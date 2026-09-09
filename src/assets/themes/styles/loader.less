@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(15, 23, 42, 0.6);
+    background-color: @main-theme;
     backdrop-filter: blur(4px);
     z-index: 1000;
     transition: opacity 0.2s ease;
@@ -26,16 +26,23 @@
   }
 
   &__spinner {
-    width: 40px;
-    height: 40px;
-    border: 3px solid rgba(100, 116, 139, 0.2);
-    border-top-color: #6366f1;
+    --color-1: @main-accent-color;
+    --size: 1px;
+    width: calc(48 * var(--size));
+    height: calc(48 * var(--size));
+    border: calc(5 * var(--size)) solid var(--color-1);
+    border-bottom-color: transparent;
     border-radius: 50%;
-    animation: spin 0.8s linear infinite;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
   }
 
-  @keyframes spin {
-    to {
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
       transform: rotate(360deg);
     }
   }

@@ -61,6 +61,7 @@ export class HighchartsComponent implements OnChanges {
         areaspline: {
           lineWidth: 3,
           threshold: null,
+          fillOpacity: 0.3,
         },
         line: {
           lineWidth: 3,

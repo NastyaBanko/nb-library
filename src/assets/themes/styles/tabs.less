@@ -9,18 +9,18 @@
   &__tabs-header {
     display: flex;
     align-items: center;
-    padding: 20px 32px;
-    border-bottom: 1px solid #1e293b;
-    background-color: rgba(15, 23, 42, 0.5);
+    padding: 32px;
+    border-bottom: 1px solid @border-color;
+    background-color: @main-theme;
     backdrop-filter: blur(8px);
   }
 
   &__tabs-list {
     display: flex;
-    background-color: #020617;
+    background-color: @main-dark-theme;
     padding: 4px;
     border-radius: 12px;
-    border: 1px solid #1e293b;
+    border: 1px solid @border-color;
     gap: 4px;
   }
 
@@ -34,18 +34,18 @@
     border-radius: 9px;
     font-size: 0.875rem;
     font-weight: 500;
-    color: #64748b;
+    color: @secondary-text;
     cursor: pointer;
     transition: all 0.2s ease;
   }
 
   &__tab-btn:hover {
-    color: #f1f5f9;
+    color: @primary-text;
   }
 
   &__tab-btn.active {
-    background-color: #6366f1;
-    color: white;
+    background-color: @main-accent-color;
+    color: @primary-text;
     box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
   }
 

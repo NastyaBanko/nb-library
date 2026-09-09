@@ -15,12 +15,13 @@ import {Constants} from "@nb/utils/constants";
 import {Language} from "@nb/app";
 import {MenuItem, menuItems} from "@nb/models/menu.model";
 import {LoaderComponent} from "@nb/components/loader/loader.component";
+import {IconComponent} from "@nb/components/icon/icon.component";
 
 @Component({
   selector: "nb-menu",
   templateUrl: "./menu.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FormsModule, CommonModule, TranslatePipe, LoaderComponent],
+  imports: [FormsModule, CommonModule, TranslatePipe, LoaderComponent, IconComponent],
 })
 export class MenuComponent implements OnInit {
   @HostBinding("class") public hostClass = "nb-menu";

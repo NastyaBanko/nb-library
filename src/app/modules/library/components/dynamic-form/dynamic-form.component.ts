@@ -11,12 +11,13 @@ import {CommonModule} from "@angular/common";
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {TranslatePipe} from "@ngx-translate/core";
 import {FormField, jsonObjectValidator, FieldType} from "@nb/models/dynamic-form.model";
+import {IconComponent} from "@nb/components/icon/icon.component";
 
 @Component({
   selector: "nb-dynamic-form",
   templateUrl: "./dynamic-form.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, ReactiveFormsModule, TranslatePipe],
+  imports: [CommonModule, ReactiveFormsModule, TranslatePipe, IconComponent],
 })
 export class DynamicFormComponent implements OnInit {
   @HostBinding("class") public hostClass = "nb-dynamic-form";
