@@ -5,8 +5,8 @@
     <ng-container [ngSwitch]="field.type">
       <input
         *ngSwitchCase="fieldType.TEXT"
-        type="text"
         class="nb-dynamic-form__form-control"
+        type="text"
         [id]="field.key"
         [type]="field.type"
         [formControlName]="field.key"
@@ -52,9 +52,9 @@
       <ng-container *ngSwitchCase="fieldType.MEMO">
         <textarea
           class="nb-dynamic-form__form-control nb-dynamic-form__memo-control"
+          rows="10"
           [id]="field.key"
           [formControlName]="field.key"
-          rows="10"
         ></textarea>
 
         <div *ngIf="_isFieldInvalid(field.key)" class="nb-dynamic-form__error-msg">

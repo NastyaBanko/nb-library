@@ -1,0 +1,9 @@
+<ng-container *ngIf="visible">
+  <div
+    class="nb-loader__container"
+    [class._fullscreen]="mode === 'fullscreen'"
+    [class._inline]="mode === 'inline'"
+  >
+    <div class="nb-loader____spinner"></div>
+  </div>
+</ng-container>

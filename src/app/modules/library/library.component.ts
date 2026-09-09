@@ -4,7 +4,13 @@ import {MenuComponent} from "@nb/modules/library/components/menu/menu.component"
 import {TabsComponent} from "@nb/modules/library/components/tabs/tabs.component";
 import {HighchartsComponent} from "@nb/modules/library/components/highcharts/highcharts.component";
 import {DynamicFormComponent} from "@nb/modules/library/components/dynamic-form/dynamic-form.component";
-import {Tabs, mainTabs, highchartFormConfig, palettes, chartExamples} from "@nb/models/library.model";
+import {
+  Tabs,
+  mainTabs,
+  highchartFormConfig,
+  palettes,
+  chartExamples,
+} from "@nb/models/library.model";
 import {MenuItem, MenuItemId} from "@nb/models/menu.model";
 
 @Component({
