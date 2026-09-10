@@ -51,6 +51,18 @@
           {{ "label.wrong.data" | translate }}
         </div>
       </ng-container>
+
+      <ng-container *ngSwitchCase="fieldType.CHECKBOX" class="nb-dynamic-form__checkbox-wrapper">
+        <label class="nb-dynamic-form__checkbox-label">
+          <input
+            type="checkbox"
+            class="nb-dynamic-form__checkbox-input"
+            [id]="field.key"
+            [formControlName]="field.key"
+          />
+          <span class="nb-dynamic-form__checkbox-text">{{ field.label | translate }}</span>
+        </label>
+      </ng-container>
     </ng-container>
   </div>
 </form>

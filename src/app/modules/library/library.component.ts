@@ -12,6 +12,7 @@ import {
   palettes,
   chartExamples,
   cardFormConfig,
+  cardExamples,
 } from "@nb/models/library.model";
 import {MenuItem, MenuItemId} from "@nb/models/menu.model";
 import {FormField} from "@nb/models/dynamic-form.model";
@@ -40,6 +41,7 @@ export class LibraryComponent {
   public readonly _menuItemIds = MenuItemId;
   public readonly _highchartFormConfig = highchartFormConfig;
   public readonly _chartExamples = chartExamples;
+  public readonly _cardExamples = cardExamples;
   public readonly _cardFormConfig = cardFormConfig;
 
   public get colorPalette(): string[] {

@@ -20,9 +20,9 @@ export class CardComponent implements OnChanges {
   @HostBinding("class") public hostClass = "nb-card";
   @Input({required: true}) public icon!: string;
   @Input({required: true}) public title!: string;
-  @Input({required: true}) public description!: string;
+  @Input() public description: string = "";
   @Input() public showFavouriteIcon: boolean = true;
-  @Input() public color: string = "rgba(30, 41, 59, 0.7)";
+  @Input() public color: string = "#6366f1";
 
   @Output() public infoClick = new EventEmitter<MouseEvent>();
 

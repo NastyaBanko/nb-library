@@ -8,6 +8,7 @@ export enum Icons {
   SPARKLES = "sparkles",
   STAR = "star",
   USER = "user",
+  FLAME = "flame",
 }
 
 @Component({

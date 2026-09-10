@@ -6,6 +6,7 @@ export enum FieldType {
   COLOR = "COLOR",
   NUMBER = "NUMBER",
   MEMO = "MEMO",
+  CHECKBOX = "CHECKBOX",
 }
 
 export interface FormField {

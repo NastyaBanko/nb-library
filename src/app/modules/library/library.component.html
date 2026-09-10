@@ -23,10 +23,12 @@
       </ng-container>
       <ng-container *ngIf="_menuItemId === _menuItemIds.CARDS">
         <nb-card
+          class="nb-library__card"
           [icon]="cardFormValues.icon"
           [title]="cardFormValues.title"
           [description]="cardFormValues.description"
           [color]="cardFormValues.color"
+          [showFavouriteIcon]="cardFormValues.isFavourite"
         ></nb-card>
 
         <nb-dynamic-form
@@ -36,7 +38,11 @@
       </ng-container>
     </div>
 
-    <div *ngIf="_currentTab === _tabsId.EXAMPLES" class="nb-library__examples">
+    <div
+      *ngIf="_currentTab === _tabsId.EXAMPLES"
+      class="nb-library__examples"
+      [class._three-columns]="_menuItemId === _menuItemIds.CARDS"
+    >
       <ng-container *ngIf="_menuItemId === _menuItemIds.HIGHCHARTS">
         <ng-container *ngFor="let example of _chartExamples">
           <div class="nb-library__example-container">
@@ -47,6 +53,21 @@
               [chartType]="example.type"
               [customConfig]="example.data"
             ></nb-highcharts>
+          </div>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="_menuItemId === _menuItemIds.CARDS">
+        <ng-container *ngFor="let example of _cardExamples">
+          <div class="nb-library__example-container">
+            <div class="nb-library__example-name">{{ example.name }}</div>
+            <nb-card
+              class="nb-library__example-card"
+              [icon]="example.icon"
+              [title]="example.title"
+              [description]="example.description || ''"
+              [color]="example.color || '#6366f1'"
+              [showFavouriteIcon]="example.isFavourite === undefined ? true : example.isFavourite"
+            ></nb-card>
           </div>
         </ng-container>
       </ng-container>

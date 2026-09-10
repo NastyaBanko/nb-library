@@ -9,7 +9,7 @@
 
   <div class="nb-card__content">
     <div class="nb-card__title">{{ title }}</div>
-    <div class="nb-card__description">
+    <div *ngIf="description" class="nb-card__description">
       {{ description }}
     </div>
   </div>
