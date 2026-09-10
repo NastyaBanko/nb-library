@@ -1,6 +1,7 @@
 import {TabItem} from "@nb/models/tabs.model";
 import {FormField, FieldType} from "@nb/models/dynamic-form.model";
 import {HighchartType, defaultPalette} from "@nb/models/highchart.model";
+import {Icons} from "@nb/components/icon/icon.component";
 
 export enum Tabs {
   OVERVIEW = "OVERVIEW",
@@ -311,4 +312,40 @@ export const chartExamples = [
   columnExample,
   barExample,
   pieExample,
+];
+
+export const iconOptions = (Object.values(Icons) as Icons[]).map((iconValue) => ({
+  label: iconValue
+    .split("-")
+    .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" "),
+  value: iconValue,
+}));
+
+export const cardFormConfig: FormField[] = [
+  {
+    key: "title",
+    label: "label.title",
+    type: FieldType.TEXT,
+    value: "Title",
+  },
+  {
+    key: "description",
+    label: "label.description",
+    type: FieldType.TEXT,
+    value: "Description",
+  },
+  {
+    key: "color",
+    label: "label.color",
+    type: FieldType.COLOR,
+    value: "#9b58f5",
+  },
+  {
+    key: "icon",
+    label: "label.icon",
+    type: FieldType.SELECT,
+    value: Icons.SPARKLES,
+    options: iconOptions,
+  },
 ];

@@ -1,0 +1,20 @@
+<div
+  class="nb-card__container"
+  [style.background]="color"
+  [class._light-background]="isLightBackground"
+>
+  <div class="nb-card__icon-wrapper">
+    <nb-icon [name]="icon" size="24"></nb-icon>
+  </div>
+
+  <div class="nb-card__content">
+    <div class="nb-card__title">{{ title }}</div>
+    <div class="nb-card__description">
+      {{ description }}
+    </div>
+  </div>
+
+  <ng-container *ngIf="showFavouriteIcon">
+    <nb-icon class="nb-card__favourite-icon" name="star" size="18"></nb-icon>
+  </ng-container>
+</div>

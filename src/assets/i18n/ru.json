@@ -13,5 +13,9 @@
     "label.color.palette": "Цветовая Палитра",
     "label.chart.data": "Данные Графика",
     "label.wrong.data": "Неправильные данные",
+    "label.title": "Название",
+    "label.description": "Описание",
+    "label.color": "Цвет",
+    "label.icon": "Иконка",
     "label.not.found": "Не найдено"
 }

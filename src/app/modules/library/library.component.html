@@ -11,18 +11,29 @@
       <ng-container *ngIf="_menuItemId === _menuItemIds.HIGHCHARTS">
         <nb-highcharts
           class="nb-library__highchart"
-          [chartTitle]="formValues.chartTitle"
-          [chartType]="formValues.chartType"
+          [chartTitle]="highchartFormValues.chartTitle"
+          [chartType]="highchartFormValues.chartType"
           [colorPalette]="colorPalette"
-          [customConfig]="formValues.seriesJson"
+          [customConfig]="highchartFormValues.seriesJson"
         ></nb-highcharts>
+        <nb-dynamic-form
+          [fields]="_highchartFormConfig"
+          (formChange)="_onHighchartFormChange($event)"
+        ></nb-dynamic-form>
       </ng-container>
-      <ng-container *ngIf="_menuItemId === _menuItemIds.CARDS"> CARDS </ng-container>
+      <ng-container *ngIf="_menuItemId === _menuItemIds.CARDS">
+        <nb-card
+          [icon]="cardFormValues.icon"
+          [title]="cardFormValues.title"
+          [description]="cardFormValues.description"
+          [color]="cardFormValues.color"
+        ></nb-card>
 
-      <nb-dynamic-form
-        [fields]="_highchartFormConfig"
-        (formChange)="_onFormChange($event)"
-      ></nb-dynamic-form>
+        <nb-dynamic-form
+          [fields]="_cardFormConfig"
+          (formChange)="_onCardFormChange($event)"
+        ></nb-dynamic-form>
+      </ng-container>
     </div>
 
     <div *ngIf="_currentTab === _tabsId.EXAMPLES" class="nb-library__examples">
