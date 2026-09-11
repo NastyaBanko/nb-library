@@ -1,0 +1,27 @@
+<div *ngIf="tabId === _tabs.OVERVIEW" class="nb-highchart-page__overview">
+  <nb-highcharts
+    class="nb-highchart-page__highchart"
+    [chartTitle]="highchartFormValues.chartTitle"
+    [chartType]="highchartFormValues.chartType"
+    [colorPalette]="colorPalette"
+    [customConfig]="highchartFormValues.seriesJson"
+  ></nb-highcharts>
+  <nb-dynamic-form
+    [fields]="_highchartFormConfig"
+    (formChange)="_onHighchartFormChange($event)"
+  ></nb-dynamic-form>
+</div>
+
+<div *ngIf="tabId === _tabs.EXAMPLES" class="nb-highchart-page__examples">
+  <ng-container *ngFor="let example of _chartExamples">
+    <div class="nb-highchart-page__example-container">
+      <div class="nb-highchart-page__example-name">{{ example.name }}</div>
+      <nb-highcharts
+        class="nb-highchart-page__example-highchart"
+        [chartTitle]="example.title"
+        [chartType]="example.type"
+        [customConfig]="example.data"
+      ></nb-highcharts>
+    </div>
+  </ng-container>
+</div>

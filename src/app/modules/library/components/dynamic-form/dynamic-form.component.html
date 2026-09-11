@@ -50,6 +50,24 @@
         <div *ngIf="_isFieldInvalid(field.key)" class="nb-dynamic-form__error-msg">
           {{ "label.wrong.data" | translate }}
         </div>
+
+        <div class="nb-dynamic-form__memo-actions">
+          <button
+            type="button"
+            class="nb-dynamic-form__btn nb-dynamic-form__btn-reset"
+            (click)="_onMemoReset(field.key)"
+          >
+            Reset
+          </button>
+          <button
+            type="button"
+            class="nb-dynamic-form__btn nb-dynamic-form__btn-apply"
+            [disabled]="form.get(field.key)?.invalid"
+            (click)="_onMemoApply(field.key)"
+          >
+            Apply Changes
+          </button>
+        </div>
       </ng-container>
 
       <ng-container *ngSwitchCase="fieldType.CHECKBOX" class="nb-dynamic-form__checkbox-wrapper">

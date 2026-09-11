@@ -164,4 +164,59 @@
     font-size: 0.875rem;
     color: #cbd5e1;
   }
+
+  &__memo-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  &__btn {
+    padding: 6px 14px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &-apply {
+      background-color: @main-accent-color;
+      color: @primary-text;
+      border-color: @main-accent-color;
+
+      &:hover:not(:disabled) {
+        background-color: #4f46e5;
+        border-color: #4f46e5;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.4);
+      }
+    }
+
+    &-reset {
+      background-color: transparent;
+      color: #cbd5e1;
+      border-color: rgba(100, 116, 139, 0.4);
+
+      &:hover:not(:disabled) {
+        background-color: rgba(255, 255, 255, 0.05);
+        color: @primary-text;
+        border-color: rgba(100, 116, 139, 0.7);
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(100, 116, 139, 0.3);
+      }
+    }
+  }
 }

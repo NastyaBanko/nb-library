@@ -1,0 +1,31 @@
+<div *ngIf="tabId === _tabs.OVERVIEW" class="nb-card-page__overview">
+  <nb-card
+    class="nb-card-page__card"
+    [icon]="cardFormValues.icon"
+    [title]="cardFormValues.title"
+    [description]="cardFormValues.description"
+    [color]="cardFormValues.color"
+    [showFavouriteIcon]="cardFormValues.isFavourite"
+  ></nb-card>
+
+  <nb-dynamic-form
+    [fields]="_cardFormConfig"
+    (formChange)="_onCardFormChange($event)"
+  ></nb-dynamic-form>
+</div>
+
+<div *ngIf="tabId === _tabs.EXAMPLES" class="nb-card-page__examples">
+  <ng-container *ngFor="let example of _cardExamples">
+    <div class="nb-card-page__example-container">
+      <div class="nb-card-page__example-name">{{ example.name }}</div>
+      <nb-card
+        class="nb-card-page__example-card"
+        [icon]="example.icon"
+        [title]="example.title"
+        [description]="example.description || ''"
+        [color]="example.color || '#6366f1'"
+        [showFavouriteIcon]="example.isFavourite === undefined ? true : example.isFavourite"
+      ></nb-card>
+    </div>
+  </ng-container>
+</div>

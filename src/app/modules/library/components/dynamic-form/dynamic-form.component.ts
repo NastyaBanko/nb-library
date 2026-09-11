@@ -25,6 +25,8 @@ export class DynamicFormComponent implements OnInit {
   @Output() formChange = new EventEmitter<any>();
   public form!: FormGroup;
   public fieldType = FieldType;
+  private memoAppliedValues: Record<string, any> = {};
+  private initialMemoValues: Record<string, any> = {};
 
   constructor(private fb: FormBuilder) {}
 
@@ -33,6 +35,11 @@ export class DynamicFormComponent implements OnInit {
     this.fields.forEach((field) => {
       const validators = field.type === this.fieldType.MEMO ? [jsonObjectValidator] : [];
       group[field.key] = [field.value, validators];
+
+      if (field.type === this.fieldType.MEMO) {
+        this.memoAppliedValues[field.key] = field.value;
+        this.initialMemoValues[field.key] = field.value;
+      }
     });
 
     this.form = this.fb.group(group);
@@ -42,13 +49,46 @@ export class DynamicFormComponent implements OnInit {
 
     this.form.valueChanges.subscribe((values) => {
       if (this.form.valid) {
-        this.formChange.emit(values);
+        const emittedValues = {...values};
+        this.fields.forEach((field) => {
+          if (field.type === this.fieldType.MEMO) {
+            emittedValues[field.key] = this.memoAppliedValues[field.key];
+          }
+        });
+        this.formChange.emit(emittedValues);
       }
     });
+  }
+
+  public _onMemoApply(key: string): void {
+    const control = this.form.get(key);
+    if (control && control.valid) {
+      this.memoAppliedValues[key] = control.value;
+      this.emitFormValues();
+    }
+  }
+
+  public _onMemoReset(key: string): void {
+    const originalValue = this.initialMemoValues[key];
+    this.form.get(key)?.setValue(originalValue);
+    this.memoAppliedValues[key] = originalValue;
+    this.emitFormValues();
   }
 
   public _isFieldInvalid(key: string): boolean {
     const control = this.form.get(key);
     return !!(control && control.invalid && (control.dirty || control.touched));
+  }
+
+  private emitFormValues(): void {
+    if (this.form.valid) {
+      const currentValues = {...this.form.value};
+      this.fields.forEach((field) => {
+        if (field.type === this.fieldType.MEMO) {
+          currentValues[field.key] = this.memoAppliedValues[field.key];
+        }
+      });
+      this.formChange.emit(currentValues);
+    }
   }
 }

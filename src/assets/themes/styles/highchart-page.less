@@ -1,0 +1,34 @@
+.nb-highchart-page {
+  &__overview {
+    display: flex;
+    height: 100%;
+    gap: 32px;
+  }
+
+  &__highchart {
+    min-width: 0;
+  }
+
+  &__examples {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  &__example-container {
+    min-width: 0;
+    border: 1px solid @border-color;
+  }
+
+  &__example-name {
+    border-bottom: 1px solid @border-color;
+    padding: 20px;
+    color: @secondary-text;
+  }
+
+  &__example-highchart {
+    padding: 20px;
+    height: 440px;
+  }
+  
+}

@@ -7,70 +7,10 @@
     [activeTabId]="_currentTab"
     (tabChange)="_onTabSelect($event)"
   >
-    <div *ngIf="_currentTab === _tabsId.OVERVIEW" class="nb-library__overview">
-      <ng-container *ngIf="_menuItemId === _menuItemIds.HIGHCHARTS">
-        <nb-highcharts
-          class="nb-library__highchart"
-          [chartTitle]="highchartFormValues.chartTitle"
-          [chartType]="highchartFormValues.chartType"
-          [colorPalette]="colorPalette"
-          [customConfig]="highchartFormValues.seriesJson"
-        ></nb-highcharts>
-        <nb-dynamic-form
-          [fields]="_highchartFormConfig"
-          (formChange)="_onHighchartFormChange($event)"
-        ></nb-dynamic-form>
-      </ng-container>
-      <ng-container *ngIf="_menuItemId === _menuItemIds.CARDS">
-        <nb-card
-          class="nb-library__card"
-          [icon]="cardFormValues.icon"
-          [title]="cardFormValues.title"
-          [description]="cardFormValues.description"
-          [color]="cardFormValues.color"
-          [showFavouriteIcon]="cardFormValues.isFavourite"
-        ></nb-card>
-
-        <nb-dynamic-form
-          [fields]="_cardFormConfig"
-          (formChange)="_onCardFormChange($event)"
-        ></nb-dynamic-form>
-      </ng-container>
-    </div>
-
-    <div
-      *ngIf="_currentTab === _tabsId.EXAMPLES"
-      class="nb-library__examples"
-      [class._three-columns]="_menuItemId === _menuItemIds.CARDS"
-    >
-      <ng-container *ngIf="_menuItemId === _menuItemIds.HIGHCHARTS">
-        <ng-container *ngFor="let example of _chartExamples">
-          <div class="nb-library__example-container">
-            <div class="nb-library__example-name">{{ example.name }}</div>
-            <nb-highcharts
-              class="nb-library__example-highchart"
-              [chartTitle]="example.title"
-              [chartType]="example.type"
-              [customConfig]="example.data"
-            ></nb-highcharts>
-          </div>
-        </ng-container>
-      </ng-container>
-      <ng-container *ngIf="_menuItemId === _menuItemIds.CARDS">
-        <ng-container *ngFor="let example of _cardExamples">
-          <div class="nb-library__example-container">
-            <div class="nb-library__example-name">{{ example.name }}</div>
-            <nb-card
-              class="nb-library__example-card"
-              [icon]="example.icon"
-              [title]="example.title"
-              [description]="example.description || ''"
-              [color]="example.color || '#6366f1'"
-              [showFavouriteIcon]="example.isFavourite === undefined ? true : example.isFavourite"
-            ></nb-card>
-          </div>
-        </ng-container>
-      </ng-container>
-    </div>
+    <nb-highchart-page
+      *ngIf="_menuItemId === _menuItemIds.HIGHCHARTS"
+      [tabId]="_currentTab"
+    ></nb-highchart-page>
+    <nb-card-page *ngIf="_menuItemId === _menuItemIds.CARDS" [tabId]="_currentTab"></nb-card-page>
   </nb-tabs>
 </div>

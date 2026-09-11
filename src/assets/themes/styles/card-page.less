@@ -1,0 +1,33 @@
+.nb-card-page {
+  &__overview {
+    display: flex;
+    height: 100%;
+    gap: 32px;
+  }
+
+  &__card {
+    width: 500px;
+    min-width: 0;
+  }
+
+  &__examples {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  &__example-container {
+    min-width: 0;
+    border: 1px solid @border-color;
+  }
+
+  &__example-name {
+    border-bottom: 1px solid @border-color;
+    padding: 20px;
+    color: @secondary-text;
+  }
+
+  &__example-card {
+    margin: 20px;
+  }
+}

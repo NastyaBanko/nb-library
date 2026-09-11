@@ -35,3 +35,11 @@ export function jsonObjectValidator(control: AbstractControl): ValidationErrors 
     return {invalidJson: true};
   }
 }
+
+export function getInitialFormValues(config: FormField[]): Record<string, any> {
+  const values: Record<string, any> = {};
+  config.forEach((field: FormField) => {
+    values[field.key] = field.value;
+  });
+  return values;
+}
