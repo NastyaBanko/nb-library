@@ -1,5 +1,5 @@
 <div class="nb-library__container">
-  <nb-menu (itemClick)="_onMenuSelect($event)"></nb-menu>
+  <nb-menu [activeItemId]="_menuItemId" (itemClick)="_onMenuSelect($event)"></nb-menu>
 
   <nb-tabs
     class="nb-library__tabs"

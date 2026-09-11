@@ -1,5 +1,7 @@
-import {ChangeDetectionStrategy, Component, HostBinding} from "@angular/core";
+import {ChangeDetectionStrategy, Component, HostBinding, inject} from "@angular/core";
 import {CommonModule} from "@angular/common";
+import {ActivatedRoute, Router} from "@angular/router";
+import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {MenuComponent} from "@nb/modules/library/components/menu/menu.component";
 import {TabsComponent} from "@nb/modules/library/components/tabs/tabs.component";
 import {HighchartsComponent} from "@nb/modules/library/components/highcharts/highcharts.component";
@@ -44,17 +46,46 @@ export class LibraryComponent {
   public readonly _cardExamples = cardExamples;
   public readonly _cardFormConfig = cardFormConfig;
 
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+
   public get colorPalette(): string[] {
     const palette = palettes.find((p) => p.value === this.highchartFormValues.colorPaletteId);
     return palette?.colors || palettes[0].colors;
   }
 
+  constructor() {
+    this.route.queryParams.pipe(takeUntilDestroyed()).subscribe((params) => {
+      const section = params["section"];
+      const tab = params["tab"];
+
+      if (section && Object.values(MenuItemId).includes(section as MenuItemId)) {
+        this._menuItemId = section as MenuItemId;
+      }
+
+      if (tab && Object.values(Tabs).includes(tab as Tabs)) {
+        this._currentTab = tab as Tabs;
+      }
+    });
+  }
+
   public _onMenuSelect(item: MenuItem) {
-    this._menuItemId = item.id;
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        section: item.id,
+        tab: Tabs.OVERVIEW,
+      },
+      queryParamsHandling: "merge",
+    });
   }
 
   public _onTabSelect($event: string) {
-    this._currentTab = $event as Tabs;
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {tab: $event},
+      queryParamsHandling: "merge",
+    });
   }
 
   public _onHighchartFormChange(values: any) {

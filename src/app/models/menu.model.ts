@@ -1,6 +1,6 @@
 export enum MenuItemId {
-  HIGHCHARTS = "HIGHCHARTS",
-  CARDS = "CARDS",
+  HIGHCHARTS = "highcharts",
+  CARDS = "cards",
 }
 
 export interface MenuItem {

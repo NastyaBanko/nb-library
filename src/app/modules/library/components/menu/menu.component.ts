@@ -5,6 +5,7 @@ import {
   Output,
   HostBinding,
   OnInit,
+  Input,
 } from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
@@ -13,7 +14,7 @@ import {TranslatePipe} from "@ngx-translate/core";
 import {LangChangeEvent, TranslateService} from "@ngx-translate/core";
 import {Constants} from "@nb/utils/constants";
 import {Language} from "@nb/app";
-import {MenuItem, menuItems} from "@nb/models/menu.model";
+import {MenuItem, menuItems, MenuItemId} from "@nb/models/menu.model";
 import {LoaderComponent} from "@nb/components/loader/loader.component";
 import {IconComponent} from "@nb/components/icon/icon.component";
 
@@ -25,8 +26,8 @@ import {IconComponent} from "@nb/components/icon/icon.component";
 })
 export class MenuComponent implements OnInit {
   @HostBinding("class") public hostClass = "nb-menu";
+  @Input() activeItemId: MenuItemId = MenuItemId.HIGHCHARTS;
   public searchQuery: string = "";
-  public activeId: string = menuItems[0].id;
   public _currentLanguage!: Language;
   public readonly _language = Language;
   @Output() itemClick = new EventEmitter<MenuItem>();
@@ -52,7 +53,7 @@ export class MenuComponent implements OnInit {
   }
 
   public _selectItem(item: MenuItem) {
-    this.activeId = item.id;
+    this.activeItemId = item.id;
     this.itemClick.emit(item);
   }
 
@@ -60,6 +61,7 @@ export class MenuComponent implements OnInit {
     const updatedLanguage =
       this._currentLanguage === this._language.EN ? this._language.RU : this._language.EN;
     this._currentLanguage = updatedLanguage;
+    localStorage.setItem(Constants.LANGUAGE, this._currentLanguage);
     this.translateService.use(updatedLanguage);
   }
 }

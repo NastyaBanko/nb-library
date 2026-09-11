@@ -23,7 +23,7 @@
         <button
           *ngFor="let item of filteredItems"
           class="nb-menu__menu-item"
-          [class.active]="activeId === item.id"
+          [class.active]="activeItemId === item.id"
           (click)="_selectItem(item)"
         >
           {{ item.label | translate }}

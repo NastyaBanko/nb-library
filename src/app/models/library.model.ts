@@ -4,8 +4,8 @@ import {HighchartType, defaultPalette} from "@nb/models/highchart.model";
 import {Icons} from "@nb/components/icon/icon.component";
 
 export enum Tabs {
-  OVERVIEW = "OVERVIEW",
-  EXAMPLES = "EXAMPLES",
+  OVERVIEW = "overview",
+  EXAMPLES = "examples",
 }
 
 export const mainTabs: TabItem[] = [
