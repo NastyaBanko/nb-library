@@ -12,5 +12,8 @@
       [tabId]="_currentTab"
     ></nb-highchart-page>
     <nb-card-page *ngIf="_menuItemId === _menuItemIds.CARDS" [tabId]="_currentTab"></nb-card-page>
+    <nb-api-page
+      *ngIf="_currentTab === _tabsId.OVERVIEW && _menuItemId === _menuItemIds.API"
+    ></nb-api-page>
   </nb-tabs>
 </div>

@@ -1,0 +1,41 @@
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostBinding,
+  inject,
+  OnInit,
+  signal,
+} from "@angular/core";
+import {CommonModule} from "@angular/common";
+import {TranslatePipe} from "@ngx-translate/core";
+import {Observable} from "rxjs";
+import {ApiService} from "@nb/services/api.service";
+import {LoaderComponent} from "@nb/components/loader/loader.component";
+import {catchError, finalize, of} from "rxjs";
+import {User} from "@nb/models/api-page.model";
+
+@Component({
+  selector: "nb-api-page",
+  templateUrl: "./api-page.component.html",
+  imports: [CommonModule, LoaderComponent, TranslatePipe],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class ApiPageComponent implements OnInit {
+  @HostBinding("class") public hostClass = "nb-api-page";
+  public users$: Observable<User[]> = of([]);
+  public isLoading = signal<boolean>(true);
+  public errorMessage = signal<string | null>(null);
+  private apiService = inject(ApiService);
+
+  public ngOnInit(): void {
+    this.users$ = this.apiService.getUsers().pipe(
+      catchError(() => {
+        this.errorMessage.set("Failed to load data from external API.");
+        return of([]);
+      }),
+      finalize(() => this.isLoading.set(false))
+    );
+  }
+
+  public _trackById = (_index: number, user: any) => user.id;
+}

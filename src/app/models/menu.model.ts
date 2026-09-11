@@ -1,6 +1,7 @@
 export enum MenuItemId {
   HIGHCHARTS = "highcharts",
   CARDS = "cards",
+  API = "api",
 }
 
 export interface MenuItem {
@@ -16,5 +17,9 @@ export const menuItems: MenuItem[] = [
   {
     id: MenuItemId.CARDS,
     label: "label.cards",
+  },
+  {
+    id: MenuItemId.API,
+    label: "label.api",
   },
 ];

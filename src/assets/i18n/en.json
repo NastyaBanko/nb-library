@@ -2,6 +2,7 @@
     "label.menu": "Menu",
     "label.highcharts": "Highcharts",
     "label.cards": "Cards",
+    "label.api": "API",
     "label.banko.email": "nastyabanko@gmail.com",
     "label.banko.name": "Anastasiya Banko",
     "label.searh.menu.placeholder": "Search",
@@ -24,5 +25,7 @@
     "chart.column": "Column",
     "chart.bar": "Bar",
     "chart.pie": "Pie",
+    "title.api.page": "REST API Integration Example",
+    "label.api.page": "Data fetched live from JSONPlaceholder via HttpClient",
     "label.not.found": "Not Found"
 }

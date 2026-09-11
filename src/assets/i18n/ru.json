@@ -17,5 +17,9 @@
     "label.description": "Описание",
     "label.color": "Цвет",
     "label.icon": "Иконка",
+    "label.favourite": "Любимый",
+    "label.api": "API",
+    "title.api.page": "Пример REST API интеграции",
+    "label.api.page": "Данные взяты с JSONPlaceholder через HttpClient",
     "label.not.found": "Не найдено"
 }

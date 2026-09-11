@@ -6,6 +6,7 @@ import {MenuComponent} from "@nb/modules/library/components/menu/menu.component"
 import {TabsComponent} from "@nb/modules/library/components/tabs/tabs.component";
 import {HighchartPageComponent} from "@nb/modules/library/components/highchart-page/highchart-page.component";
 import {CardPageComponent} from "@nb/modules/library/components/card-page/card-page.component";
+import {ApiPageComponent} from "@nb/modules/library/components/api-page/api-page.component";
 import {Tabs, mainTabs} from "@nb/models/library.model";
 import {MenuItem, MenuItemId} from "@nb/models/menu.model";
 
@@ -13,7 +14,14 @@ import {MenuItem, MenuItemId} from "@nb/models/menu.model";
   selector: "library",
   templateUrl: "./library.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, MenuComponent, TabsComponent, HighchartPageComponent, CardPageComponent],
+  imports: [
+    CommonModule,
+    MenuComponent,
+    TabsComponent,
+    HighchartPageComponent,
+    CardPageComponent,
+    ApiPageComponent,
+  ],
 })
 export class LibraryComponent {
   @HostBinding("class") public hostClass = "nb-library";
