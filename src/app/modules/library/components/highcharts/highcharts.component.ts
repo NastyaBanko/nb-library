@@ -16,9 +16,17 @@ export class HighchartsComponent implements OnChanges {
   @Input() colorPalette: string[] = defaultPalette.colors;
   @Input() customConfig: string = "";
   public chartOptions: Highcharts.Options = {};
+  private chartInstance: Highcharts.Chart | null = null;
 
   public ngOnChanges() {
     this.updateChartOptions();
+    if (this.chartInstance) {
+      this.chartInstance.update(this.chartOptions, true, true);
+    }
+  }
+
+  public _onChartInstance(chart: Highcharts.Chart): void {
+    this.chartInstance = chart;
   }
 
   private updateChartOptions() {
