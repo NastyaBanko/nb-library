@@ -10,7 +10,7 @@ import {HighchartType, defaultPalette, defaultPieConfig} from "@nb/models/highch
   imports: [CommonModule, HighchartsChartDirective],
 })
 export class HighchartsComponent implements OnChanges {
-  @HostBinding("class") public hostClass = "nb-highcharts";
+  @HostBinding("class") public hostClass = "nb-highcharts taHighcharts";
   @Input() chartTitle: string = "";
   @Input() chartType: HighchartType = HighchartType.AREASPLINE;
   @Input() colorPalette: string[] = defaultPalette.colors;

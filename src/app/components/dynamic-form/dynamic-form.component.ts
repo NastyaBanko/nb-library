@@ -20,7 +20,7 @@ import {IconComponent} from "@nb/components/icon/icon.component";
   imports: [CommonModule, ReactiveFormsModule, TranslatePipe, IconComponent],
 })
 export class DynamicFormComponent implements OnInit {
-  @HostBinding("class") public hostClass = "nb-dynamic-form";
+  @HostBinding("class") public hostClass = "nb-dynamic-form taDynamicForm";
   @Input() fields: FormField[] = [];
   @Output() formChange = new EventEmitter<any>();
   public form!: FormGroup;

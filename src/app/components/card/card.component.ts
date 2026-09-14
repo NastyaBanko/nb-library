@@ -17,7 +17,7 @@ import {IconComponent} from "@nb/components/icon/icon.component";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent implements OnChanges {
-  @HostBinding("class") public hostClass = "nb-card";
+  @HostBinding("class") public hostClass = "nb-card taCard";
   @Input({required: true}) public icon!: string;
   @Input({required: true}) public title!: string;
   @Input() public description: string = "";

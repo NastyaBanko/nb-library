@@ -2,8 +2,8 @@ import {ChangeDetectionStrategy, Component, HostBinding, inject, signal} from "@
 import {CommonModule} from "@angular/common";
 import {ActivatedRoute, Router} from "@angular/router";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
-import {MenuComponent} from "@nb/modules/library/components/menu/menu.component";
-import {TabsComponent} from "@nb/modules/library/components/tabs/tabs.component";
+import {MenuComponent} from "@nb/components/menu/menu.component";
+import {TabsComponent} from "@nb/components/tabs/tabs.component";
 import {HighchartPageComponent} from "@nb/modules/library/components/highchart-page/highchart-page.component";
 import {CardPageComponent} from "@nb/modules/library/components/card-page/card-page.component";
 import {ApiPageComponent} from "@nb/modules/library/components/api-page/api-page.component";

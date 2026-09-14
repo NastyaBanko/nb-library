@@ -1,7 +1,7 @@
 import {Component, Input, HostBinding} from "@angular/core";
 import {CommonModule} from "@angular/common";
-import {HighchartsComponent} from "@nb/modules/library/components/highcharts/highcharts.component";
-import {DynamicFormComponent} from "@nb/modules/library/components/dynamic-form/dynamic-form.component";
+import {HighchartsComponent} from "@nb/components/highcharts/highcharts.component";
+import {DynamicFormComponent} from "@nb/components/dynamic-form/dynamic-form.component";
 import {Tabs} from "@nb/models/library.model";
 import {getInitialFormValues} from "@nb/models/dynamic-form.model";
 import {highchartFormConfig, chartExamples, palettes} from "@nb/models/highchart-page.model";

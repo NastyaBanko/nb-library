@@ -9,7 +9,7 @@ export type LoaderMode = "fullscreen" | "inline";
   imports: [CommonModule],
 })
 export class LoaderComponent {
-  @HostBinding("class") public hostClass = "nb-loader";
+  @HostBinding("class") public hostClass = "nb-loader taLoader";
   @Input() visible: boolean = true;
   @Input() mode: LoaderMode = "inline";
 }

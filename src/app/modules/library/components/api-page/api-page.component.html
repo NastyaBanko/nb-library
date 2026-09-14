@@ -5,13 +5,13 @@
   <div *ngIf="isLoading()" class="nb-api-page__loader-container">
     <nb-loader mode="inline"></nb-loader>
   </div>
-  <div *ngIf="!isLoading() && errorMessage()" class="nb-api-page__error">
+  <div *ngIf="!isLoading() && errorMessage()" class="nb-api-page__error taApiPageError">
     {{ errorMessage() }}
   </div>
 
   <ng-container *ngIf="users$ | async as users">
     <ul *ngIf="!isLoading() && !errorMessage()" class="nb-api-page__list">
-      <li *ngFor="let user of users; trackBy: _trackById" class="nb-api-page__item">
+      <li *ngFor="let user of users; trackBy: _trackById" class="nb-api-page__item taUser">
         <span class="nb-api-page__name">{{ user.name }}</span>
         <span class="nb-api-page__email">{{ user.email }}</span>
         <span class="nb-api-page__company">{{ user.company.name }}</span>

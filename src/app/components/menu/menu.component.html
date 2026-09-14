@@ -2,13 +2,13 @@
   <aside class="nb-menu__sidebar">
     <div class="nb-menu__sidebar-header">
       <span class="nb-menu__logo-text">{{ "label.menu" | translate }}</span>
-      <button class="nb-menu__lang-toggle-btn" title="Switch Language" (click)="_toggleLanguage()">
-        <span class="nb-menu__lang-icon">{{ _currentLanguage }}</span>
+      <button class="nb-menu__lang-toggle-btn taLangToggleBtn" title="Switch Language" (click)="_toggleLanguage()">
+        <span class="nb-menu__lang-icon taLangIcon">{{ _currentLanguage }}</span>
       </button>
     </div>
 
     <div class="nb-menu__search-container">
-      <div class="nb-menu__search-box">
+      <div class="nb-menu__search-box taMenuSearch">
         <nb-icon class="nb-menu__search-icon" name="search"></nb-icon>
         <input
           type="text"
@@ -46,7 +46,7 @@
 </ng-container>
 
 <ng-template #noResults>
-  <div class="nb-menu__no-results">{{ "label.not.found" | translate }}</div>
+  <div class="nb-menu__no-results taMenuNotFound">{{ "label.not.found" | translate }}</div>
 </ng-template>
 
 <ng-template #loading>

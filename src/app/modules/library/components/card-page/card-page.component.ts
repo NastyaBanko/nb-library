@@ -1,7 +1,7 @@
 import {Component, Input, HostBinding} from "@angular/core";
 import {CommonModule} from "@angular/common";
-import {CardComponent} from "@nb/modules/library/components/card/card.component";
-import {DynamicFormComponent} from "@nb/modules/library/components/dynamic-form/dynamic-form.component";
+import {CardComponent} from "@nb/components/card/card.component";
+import {DynamicFormComponent} from "@nb/components/dynamic-form/dynamic-form.component";
 import {Tabs} from "@nb/models/library.model";
 import {getInitialFormValues} from "@nb/models/dynamic-form.model";
 import {cardFormConfig, cardExamples} from "@nb/models/card-page.model";
