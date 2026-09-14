@@ -36,5 +36,5 @@ export class ApiPageComponent implements OnInit {
     );
   }
 
-  public _trackById = (_index: number, user: any) => user.id;
+  public _trackById = (_index: number, user: User) => user.id;
 }

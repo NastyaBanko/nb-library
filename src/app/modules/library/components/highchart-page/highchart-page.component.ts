@@ -2,7 +2,12 @@ import {Component, Input, HostBinding} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {Tabs} from "@nb/models/library.model";
 import {getInitialFormValues} from "@nb/models/dynamic-form.model";
-import {highchartFormConfig, chartExamples, palettes} from "@nb/models/highchart-page.model";
+import {
+  HighchartFormValues,
+  highchartFormConfig,
+  chartExamples,
+  palettes,
+} from "@nb/models/highchart-page.model";
 import {SHARED_IMPORTS} from "@nb/modules/shared/shared.imports";
 
 @Component({
@@ -13,7 +18,9 @@ import {SHARED_IMPORTS} from "@nb/modules/shared/shared.imports";
 export class HighchartPageComponent {
   @HostBinding("class") public hostClass = "nb-highchart-page";
   @Input() tabId: Tabs = Tabs.OVERVIEW;
-  public highchartFormValues: any = getInitialFormValues(highchartFormConfig);
+  public highchartFormValues: HighchartFormValues = getInitialFormValues<HighchartFormValues>(
+    highchartFormConfig
+  );
   public readonly _tabs = Tabs;
   public readonly _highchartFormConfig = highchartFormConfig;
   public readonly _chartExamples = chartExamples;
@@ -23,7 +30,7 @@ export class HighchartPageComponent {
     return palette?.colors || palettes[0].colors;
   }
 
-  public _onHighchartFormChange(values: any) {
+  public _onHighchartFormChange(values: HighchartFormValues) {
     this.highchartFormValues = values;
   }
 }
