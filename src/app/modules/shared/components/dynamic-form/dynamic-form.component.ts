@@ -11,7 +11,7 @@ import {CommonModule} from "@angular/common";
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {TranslatePipe} from "@ngx-translate/core";
 import {FormField, jsonObjectValidator, FieldType} from "@nb/models/dynamic-form.model";
-import {IconComponent} from "@nb/components/icon/icon.component";
+import {IconComponent} from "@nb/modules/shared/components/icon/icon.component";
 
 @Component({
   selector: "nb-dynamic-form",

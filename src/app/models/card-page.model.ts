@@ -1,5 +1,5 @@
 import {FormField, FieldType} from "@nb/models/dynamic-form.model";
-import {Icons} from "@nb/components/icon/icon.component";
+import {Icons} from "@nb/models/icon.model";
 
 export interface CardExample {
   name: string;

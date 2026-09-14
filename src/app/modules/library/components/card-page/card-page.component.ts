@@ -1,15 +1,14 @@
 import {Component, Input, HostBinding} from "@angular/core";
 import {CommonModule} from "@angular/common";
-import {CardComponent} from "@nb/components/card/card.component";
-import {DynamicFormComponent} from "@nb/components/dynamic-form/dynamic-form.component";
 import {Tabs} from "@nb/models/library.model";
 import {getInitialFormValues} from "@nb/models/dynamic-form.model";
 import {cardFormConfig, cardExamples} from "@nb/models/card-page.model";
+import {SHARED_IMPORTS} from "@nb/modules/shared/shared.imports";
 
 @Component({
   selector: "nb-card-page",
   templateUrl: "./card-page.component.html",
-  imports: [CommonModule, CardComponent, DynamicFormComponent],
+  imports: [CommonModule, ...SHARED_IMPORTS],
 })
 export class CardPageComponent {
   @HostBinding("class") public hostClass = "nb-card-page";

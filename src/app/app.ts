@@ -1,22 +1,15 @@
 import {Component, signal} from "@angular/core";
 import {RouterOutlet} from "@angular/router";
-import {SharedModule} from "@nb/modules/shared/shared.module";
-import {LoaderComponent} from "@nb/components/loader/loader.component";
 import {Constants} from "@nb/utils/constants";
+import {SHARED_IMPORTS} from "@nb/modules/shared/shared.imports";
 import {TranslateService} from "@ngx-translate/core";
-
-export enum Language {
-  EN = "en",
-  RU = "ru",
-}
-
-const defaultLang: Language = Language.EN;
+import {Language, defaultLang} from "@nb/models/language.model";
 
 @Component({
   selector: "app-root",
   styleUrl: "./app.css",
   templateUrl: "./app.html",
-  imports: [RouterOutlet, SharedModule, LoaderComponent],
+  imports: [RouterOutlet, ...SHARED_IMPORTS],
 })
 export class App {
   protected readonly title = signal("nb-library");

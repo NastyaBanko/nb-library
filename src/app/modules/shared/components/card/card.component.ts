@@ -8,7 +8,7 @@ import {
   OnChanges,
 } from "@angular/core";
 import {CommonModule} from "@angular/common";
-import {IconComponent} from "@nb/components/icon/icon.component";
+import {IconComponent} from "@nb/modules/shared/components/icon/icon.component";
 
 @Component({
   selector: "nb-card",

@@ -1,15 +1,14 @@
 import {Component, Input, HostBinding} from "@angular/core";
 import {CommonModule} from "@angular/common";
-import {HighchartsComponent} from "@nb/components/highcharts/highcharts.component";
-import {DynamicFormComponent} from "@nb/components/dynamic-form/dynamic-form.component";
 import {Tabs} from "@nb/models/library.model";
 import {getInitialFormValues} from "@nb/models/dynamic-form.model";
 import {highchartFormConfig, chartExamples, palettes} from "@nb/models/highchart-page.model";
+import {SHARED_IMPORTS} from "@nb/modules/shared/shared.imports";
 
 @Component({
   selector: "nb-highchart-page",
   templateUrl: "./highchart-page.component.html",
-  imports: [CommonModule, HighchartsComponent, DynamicFormComponent],
+  imports: [CommonModule, ...SHARED_IMPORTS],
 })
 export class HighchartPageComponent {
   @HostBinding("class") public hostClass = "nb-highchart-page";

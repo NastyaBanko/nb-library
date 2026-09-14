@@ -7,17 +7,16 @@ import {
   signal,
 } from "@angular/core";
 import {CommonModule} from "@angular/common";
-import {TranslatePipe} from "@ngx-translate/core";
 import {Observable} from "rxjs";
 import {ApiService} from "@nb/services/api.service";
-import {LoaderComponent} from "@nb/components/loader/loader.component";
 import {catchError, finalize, of} from "rxjs";
 import {User} from "@nb/models/api-page.model";
+import {SHARED_IMPORTS} from "@nb/modules/shared/shared.imports";
 
 @Component({
   selector: "nb-api-page",
   templateUrl: "./api-page.component.html",
-  imports: [CommonModule, LoaderComponent, TranslatePipe],
+  imports: [CommonModule, ...SHARED_IMPORTS],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ApiPageComponent implements OnInit {
