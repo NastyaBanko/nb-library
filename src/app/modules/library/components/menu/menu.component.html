@@ -22,7 +22,7 @@
       <ng-container *ngIf="filteredItems.length !== 0; else noResults">
         <button
           *ngFor="let item of filteredItems"
-          class="nb-menu__menu-item"
+          class="nb-menu__menu-item taMenuItem"
           [class.active]="activeItemId === item.id"
           (click)="_selectItem(item)"
         >

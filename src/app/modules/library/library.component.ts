@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, HostBinding, inject} from "@angular/core";
+import {ChangeDetectionStrategy, Component, HostBinding, inject, signal} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {ActivatedRoute, Router} from "@angular/router";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
@@ -25,8 +25,8 @@ import {MenuItem, MenuItemId} from "@nb/models/menu.model";
 })
 export class LibraryComponent {
   @HostBinding("class") public hostClass = "nb-library";
-  public _menuItemId: MenuItemId = MenuItemId.HIGHCHARTS;
-  public _currentTab: Tabs = Tabs.OVERVIEW;
+  public _menuItemId = signal<MenuItemId>(MenuItemId.HIGHCHARTS);
+  public _currentTab = signal<Tabs>(Tabs.OVERVIEW);
   public readonly _mainTabs = mainTabs;
   public readonly _tabsId = Tabs;
   public readonly _menuItemIds = MenuItemId;
@@ -40,11 +40,11 @@ export class LibraryComponent {
       const tab = params["tab"];
 
       if (section && Object.values(MenuItemId).includes(section as MenuItemId)) {
-        this._menuItemId = section as MenuItemId;
+        this._menuItemId.set(section as MenuItemId);
       }
 
       if (tab && Object.values(Tabs).includes(tab as Tabs)) {
-        this._currentTab = tab as Tabs;
+        this._currentTab.set(tab as Tabs);
       }
     });
   }

@@ -3,7 +3,7 @@
     <div class="nb-tabs__tabs-list">
       <button
         *ngFor="let tab of tabs"
-        class="nb-tabs__tab-btn"
+        class="nb-tabs__tab-btn taTabItem"
         [class.active]="activeTabId === tab.id"
         (click)="_selectTab(tab.id)"
       >
