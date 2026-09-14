@@ -1,16 +1,18 @@
-@import "common.less";
-@import "mixin.less";
-@import "colors.less";
+@import "common/colors.less";
+@import "common/common.less";
+@import "common/mixin.less";
 
 // Components
-@import "menu.less";
-@import "library.less";
-@import "tabs.less";
-@import "dynamic-form.less";
-@import "highcharts.less";
-@import "loader.less";
-@import "icon.less";
-@import "card.less";
-@import "highchart-page.less";
-@import "card-page.less";
-@import "api-page.less";
+@import "components/library/library.less";
+@import "components/library/api-page.less";
+@import "components/library/highchart-page.less";
+@import "components/library/card-page.less";
+
+// Shared Components
+@import "components/shared/card.less";
+@import "components/shared/dynamic-form.less";
+@import "components/shared/highcharts.less";
+@import "components/shared/icon.less";
+@import "components/shared/loader.less";
+@import "components/shared/menu.less";
+@import "components/shared/tabs.less";
