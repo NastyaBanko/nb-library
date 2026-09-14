@@ -36,10 +36,10 @@ export function jsonObjectValidator(control: AbstractControl): ValidationErrors 
   }
 }
 
-export function getInitialFormValues(config: FormField[]): Record<string, any> {
-  const values: Record<string, any> = {};
+export function getInitialFormValues<T extends Record<string, any>>(config: FormField[]): T {
+  const values = {} as T;
   config.forEach((field: FormField) => {
-    values[field.key] = field.value;
+    (values as Record<string, any>)[field.key] = field.value;
   });
   return values;
 }

@@ -13,10 +13,10 @@ import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {TranslatePipe} from "@ngx-translate/core";
 import {LangChangeEvent, TranslateService} from "@ngx-translate/core";
 import {Constants} from "@nb/utils/constants";
-import {Language} from "@nb/app";
+import {Language} from "@nb/models/language.model";
 import {MenuItem, menuItems, MenuItemId} from "@nb/models/menu.model";
-import {LoaderComponent} from "@nb/components/loader/loader.component";
-import {IconComponent} from "@nb/components/icon/icon.component";
+import {LoaderComponent} from "@nb/modules/shared/components/loader/loader.component";
+import {IconComponent} from "@nb/modules/shared/components/icon/icon.component";
 
 @Component({
   selector: "nb-menu",

@@ -1,15 +1,23 @@
 import {HighchartType, defaultPalette} from "@nb/models/highchart.model";
 import {FormField, FieldType} from "@nb/models/dynamic-form.model";
 
+export interface HighchartFormValues {
+  chartTitle: string;
+  chartSubtitle: string;
+  chartType: HighchartType;
+  colorPaletteId: string;
+  seriesJson: string;
+}
+
 export interface ChartExample {
   name: string;
   title: string;
   subTitle: string;
   type: HighchartType;
-  data: any;
+  data: string;
 }
 
-export const palettes: {label: string; value: any; colors: string[]}[] = [
+export const palettes: {label: string; value: string; colors: string[]}[] = [
   defaultPalette,
   {
     value: "emerald",

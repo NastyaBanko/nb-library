@@ -8,10 +8,10 @@ import {
   OnInit,
 } from "@angular/core";
 import {CommonModule} from "@angular/common";
-import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
+import {FormBuilder, FormGroup, ReactiveFormsModule, ValidatorFn} from "@angular/forms";
 import {TranslatePipe} from "@ngx-translate/core";
 import {FormField, jsonObjectValidator, FieldType} from "@nb/models/dynamic-form.model";
-import {IconComponent} from "@nb/components/icon/icon.component";
+import {IconComponent} from "@nb/modules/shared/components/icon/icon.component";
 
 @Component({
   selector: "nb-dynamic-form",
@@ -22,16 +22,16 @@ import {IconComponent} from "@nb/components/icon/icon.component";
 export class DynamicFormComponent implements OnInit {
   @HostBinding("class") public hostClass = "nb-dynamic-form taDynamicForm";
   @Input() fields: FormField[] = [];
-  @Output() formChange = new EventEmitter<any>();
+  @Output() formChange = new EventEmitter<Record<string, string>>();
   public form!: FormGroup;
   public fieldType = FieldType;
-  private memoAppliedValues: Record<string, any> = {};
-  private initialMemoValues: Record<string, any> = {};
+  private memoAppliedValues: Record<string, string> = {};
+  private initialMemoValues: Record<string, string> = {};
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    const group: any = {};
+    const group: Record<string, [unknown, ValidatorFn[]]> = {};
     this.fields.forEach((field) => {
       const validators = field.type === this.fieldType.MEMO ? [jsonObjectValidator] : [];
       group[field.key] = [field.value, validators];
