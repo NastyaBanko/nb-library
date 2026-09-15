@@ -1,7 +1,7 @@
 import {FormField, FieldType} from "@nb/models/dynamic-form.model";
 import {Icons} from "@nb/models/icon.model";
 
-export interface CardFormValues {
+export interface CardFormValues extends Record<string, any> {
   title: string;
   description: string;
   color: string;

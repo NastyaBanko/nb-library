@@ -18,7 +18,7 @@ export class CardPageComponent {
   public readonly _cardExamples = cardExamples;
   public readonly _cardFormConfig = cardFormConfig;
 
-  public _onCardFormChange(values: CardFormValues) {
-    this.cardFormValues = values;
+  public _onCardFormChange(values: Record<string, string>) {
+    this.cardFormValues = <CardFormValues>values;
   }
 }

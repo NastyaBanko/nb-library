@@ -1,7 +1,7 @@
 import {HighchartType, defaultPalette} from "@nb/models/highchart.model";
 import {FormField, FieldType} from "@nb/models/dynamic-form.model";
 
-export interface HighchartFormValues {
+export interface HighchartFormValues extends Record<string, any> {
   chartTitle: string;
   chartSubtitle: string;
   chartType: HighchartType;

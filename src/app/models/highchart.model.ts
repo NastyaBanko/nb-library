@@ -14,6 +14,6 @@ export const defaultPalette = {
 };
 
 export const defaultPieConfig = {
-    xAxis: undefined,
-    yAxis: undefined,
+  xAxis: undefined,
+  yAxis: undefined,
 };

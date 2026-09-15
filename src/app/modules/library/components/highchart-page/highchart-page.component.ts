@@ -30,7 +30,7 @@ export class HighchartPageComponent {
     return palette?.colors || palettes[0].colors;
   }
 
-  public _onHighchartFormChange(values: HighchartFormValues) {
-    this.highchartFormValues = values;
+  public _onHighchartFormChange(values: Record<string, string>) {
+    this.highchartFormValues = values as HighchartFormValues;
   }
 }
