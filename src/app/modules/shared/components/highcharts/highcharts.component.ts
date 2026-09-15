@@ -1,15 +1,24 @@
-import {Component, HostBinding, Input, OnChanges} from "@angular/core";
+import {
+  Component,
+  HostBinding,
+  Input,
+  OnChanges,
+  OnDestroy,
+  ViewChild,
+  SimpleChanges,
+  ElementRef,
+} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import * as Highcharts from "highcharts";
-import {HighchartsChartDirective} from "highcharts-angular";
 import {HighchartType, defaultPalette, defaultPieConfig} from "@nb/models/highchart.model";
 
 @Component({
   selector: "nb-highcharts",
   templateUrl: "./highcharts.component.html",
-  imports: [CommonModule, HighchartsChartDirective],
+  imports: [CommonModule],
 })
-export class HighchartsComponent implements OnChanges {
+export class HighchartsComponent implements OnChanges, OnDestroy {
+  @ViewChild("chartContainer", {static: true}) private chartContainer!: ElementRef<HTMLDivElement>;
   @HostBinding("class") public hostClass = "nb-highcharts taHighcharts";
   @Input() chartTitle: string = "";
   @Input() chartType: HighchartType = HighchartType.AREASPLINE;
@@ -18,18 +27,31 @@ export class HighchartsComponent implements OnChanges {
   public chartOptions: Highcharts.Options = {};
   private chartInstance: Highcharts.Chart | null = null;
 
-  public ngOnChanges() {
-    this.updateChartOptions();
-    if (this.chartInstance) {
-      this.chartInstance.update(this.chartOptions, true, true);
+  public ngOnChanges(changes: SimpleChanges): void {
+    if (
+      changes["chartType"] ||
+      changes["customConfig"] ||
+      changes["colorPalette"] ||
+      changes["chartTitle"]
+    ) {
+      this.renderChart();
     }
   }
 
-  public _onChartInstance(chart: Highcharts.Chart): void {
-    this.chartInstance = chart;
+  public ngOnDestroy(): void {
+    this.destroyChart();
   }
 
-  private updateChartOptions() {
+  private destroyChart(): void {
+    if (this.chartInstance) {
+      this.chartInstance.destroy();
+      this.chartInstance = null;
+    }
+  }
+
+  private renderChart() {
+    this.destroyChart();
+
     const processedSeries = JSON.parse(this.customConfig) || {};
 
     this.chartOptions = {
@@ -81,5 +103,7 @@ export class HighchartsComponent implements OnChanges {
       ...(this.chartType === HighchartType.PIE ? defaultPieConfig : {}),
       ...processedSeries,
     };
+
+    this.chartInstance = Highcharts.chart(this.chartContainer.nativeElement, this.chartOptions);
   }
 }

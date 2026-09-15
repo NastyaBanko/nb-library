@@ -44,12 +44,6 @@ export const highchartFormConfig: FormField[] = [
     value: "Chart Title",
   },
   {
-    key: "chartSubtitle",
-    label: "label.chart.subtitle",
-    type: FieldType.TEXT,
-    value: "Chart Subtitle",
-  },
-  {
     key: "chartType",
     label: "label.chart.type",
     type: FieldType.SELECT,
