@@ -27,3 +27,6 @@ Run `npx playwright test --ui` to execute the end-to-end tests
 11. BEM
 12. LESS
 13. SVG
+
+![alt text](src/assets/themes/images/readme/highchart-preview.png)
+![alt text](src/assets/themes/images/readme/card-preview.png)
